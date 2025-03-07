@@ -8,12 +8,12 @@ include_once("config.php");
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
-	<title>Alta empleado/a</title>
+	<title>Nuevo pokemon</title>
 </head>
 <body>
 <div>
 	<header>
-		<h1>ELECTROSHOP S.L.</h1>
+		<h1>actividad61_ulcu</h1>
 	</header>
 	<main>
 
@@ -34,10 +34,12 @@ En PHP los datos se administran con el array asociativo $_GET. En nuestro caso e
 PHP proporciona el array asociativo $_POST para acceder a la información enviada.
 */
 
+	$id = $mysqli->real_escape_string($_POST['id']);
 	$name = $mysqli->real_escape_string($_POST['name']);
-	$surname = $mysqli->real_escape_string($_POST['surname']);
-	$age = $mysqli->real_escape_string($_POST['age']);
-	$job = $mysqli->real_escape_string($_POST['job']);
+	$type1 = $mysqli->real_escape_string($_POST['type1']);
+	$type2 = $mysqli->real_escape_string($_POST['type2']);
+	$hability = $mysqli->real_escape_string($_POST['hability']);
+	$stat = $mysqli->real_escape_string($_POST['stat']);
 
 /*Con mysqli_real_scape_string protege caracteres especiales en una cadena para ser usada en una sentencia SQL.
 Esta función es usada para crear una cadena SQL legal que se puede usar en una sentencia SQL. 
@@ -47,22 +49,26 @@ Escapado con mysqli_real_escape_string(): Se convierte en "O\'Reilly", evitando 
 */
 
 //Se comprueba si existen campos del formulario vacíos
-	if(empty($name) || empty($surname) || empty($age) || empty($job) ) 
+	if(empty($id) || empty($name) || empty($type1) || empty($hability)|| empty($stat)) 
 	{
+		if(empty($id)) {
+			echo "<div>Campo id vacío.</div>";
+		}
+
 		if(empty($name)) {
-			echo "<div>Campo nombre vacío.</div>";
+			echo "<div>Campo apelnombrelido vacío</div>";
 		}
 
-		if(empty($surname)) {
-			echo "<div>Campo apellido vacío</div>";
+		if(empty($type1)) {
+			echo "<div>Campo tipo1 vacío.</div>";
 		}
 
-		if(empty($age)) {
-			echo "<div>Campo edad vacío.</div>";
+		if(empty($hability)) {
+			echo "<div>Campo habilidad vacío.</div>";
 		}
 
-		if(empty($job)) {
-			echo "<div>Campo puesto vacío.</div>";
+		if(empty($stat)) {
+			echo "<div>Campo stat_total vacío.</div>";
 		}
 //Enlace a la página anterior
 		//Se cierra la conexión

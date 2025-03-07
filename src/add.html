@@ -3,49 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alta empleado/a</title>
+    <title>Pokemon nuevo</title>
 </head>
 <body>
 <div>
 	<header>
-		<h1>ELECTROSHOP S.L.</h1>
+		<h1>actividad61_ulcu</h1>
 	</header>
 	<main>				
 	<ul>
 		<li><a href="index.php">Inicio</a></li>
-		<li><a href="add.html">Alta</a></li>
+		<li><a href="add.html">Nuevo</a></li>
 	</ul>
-	<h2>Alta empleado/a</h2>
+	<h2>Nuevo pokemon</h2>
 <!--FORMULARIO DE ALTA. Al hacer click en el botón Agregar, llama a la página: add.php (form action="add.php")
 La página: add.php se encargará de proceder a la inserción del registro en la tabla de empleados
 -->
 
 	<form action="add_action.php" method="post">
 		<div>
-			<label for="name">Nombre</label>
+			<label for="id">id</label>
+			<input type="number" name="id" id="id" placeholder="id" required>
+		</div>
+
+		<div>
+			<label for="name">nombre</label>
 			<input type="text" name="name" id="name" placeholder="nombre" required>
 		</div>
 
 		<div>
-			<label for="surname">Apellido</label>
-			<input type="text" name="surname" id="surname" placeholder="apellido" required>
+			<label for="type1">tipo1</label>
+			<input type="text" name="type1" id="type1" placeholder="tipo1" required>
 		</div>
 
 		<div>
-			<label for="age">Edad</label>
-			<input type="number" name="age" id="age" placeholder="edad" required>
-		</div>
-
-		<div>
-			<label for="job">Puesto</label>
-			<select name="job" id="job" placeholder="puesto" required>
-				<option value="" disabled selected>Seleccione un puesto</option>
-				<option value="Administrativo">Administrativo</option>
-				<option value="Contable">Contable</option>
-				<option value="Dependiente">Dependiente</option>
-				<option value="Gerente">Gerente</option>
-				<option value="Repartidor">Repartidor</option>
+			<label for="type2">tipo2</label>
+			<select name="type2" id="type2" placeholder="tipo2">
+				<option value="" disabled selected>Seleccione un tipo</option>
+				<option value="Normal">Normal</option>
+				<option value="Lucha">Lucha</option>
+				<option value="Siniestro">Siniestro</option>
+				<option value="Fantasma">Fantasma</option>
+				<option value="Psiquico">Psiquico</option>
+				<option value="Fuego">Fuego</option>
+				<option value="Planta">Planta</option>
+				<option value="Agua">Agua</option>
+				<option value="Bicho">Bicho</option>
+				<option value="Volador">Volador</option>
+				<option value="Hada">Hada</option>
+				<option value="Electrico">Electrico</option>
+				<option value="Hielo">Hielo</option>
+				<option value="Dragon">Dragon</option>
+				<option value="Tierra">Tierra</option>
+				<option value="Roca">Roca</option>
+				<option value="Acero">Acero</option>
+				<option value="Veneno">Veneno</option>
+				<option value=" ">  </option>
 			</select>	
+		</div>
+
+		<div>
+			<label for="hability">habilidad</label>
+			<input type="text" name="hability" id="hability" placeholder="habilidad" required>
+		</div>
+
+		<div>
+			<label for="stat">stat_total</label>
+			<input type="number" name="stat" id="stat" placeholder="stat_total" required>
 		</div>
 
 		<div>

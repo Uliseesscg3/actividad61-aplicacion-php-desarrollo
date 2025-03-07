@@ -13,28 +13,29 @@ include_once("config.php");
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
-	<title>Electroshop S.L.</title>
+	<title>actividad61_ulcu</title>
 </head>
 <body>
 <div>
 	<header>
-		<h1>ELECTROSHOP S.L.</h1>
+		<h1>actividad61_ulcu</h1>
 	</header>
 
 	<main>
 	<ul>
 		<li><a href="index.php">Inicio</a></li>
-		<li><a href="add.html">Alta</a></li>
+		<li><a href="add.html">Nuevo pokemon</a></li>
 	</ul>
-	<h2>Empleados/as</h2>
+	<h2>pokemon</h2>
 	<table border="1">
 	<thead>
 		<tr>
-			<th>Nombre</th>
-			<th>Apellido</th>
-			<th>Edad</th>
-			<th>Puesto</th>
-			<th>Acciones</th>
+			<th>id</th>
+			<th>nombre</th>
+			<th>tipo1</th>
+			<th>tipo2</th>
+			<th>habilidad</th>
+			<th>stat_total</th>
 		</tr>
 	</thead>
 	<tbdody>
@@ -44,7 +45,7 @@ include_once("config.php");
 Cada fila y cada columna de la tabla se corresponde con un registro y campo de la tabla EMPLEADOS.
 */
 
-$resultado = $mysqli->query("SELECT * FROM empleados ORDER BY apellido, nombre");
+$resultado = $mysqli->query("SELECT * FROM pokemon ORDER BY id");
 
 //Cierra la conexión de la BD
 $mysqli->close();
@@ -87,16 +88,18 @@ A medida que avanza se va consturyendo cada fila de la tabla HTML con todos los 
 
 	while($fila = $resultado->fetch_array()) {
 		echo "<tr>\n";
+		echo "<td>".$fila['id']."</td>\n";
 		echo "<td>".$fila['nombre']."</td>\n";
-		echo "<td>".$fila['apellido']."</td>\n";
-		echo "<td>".$fila['edad']."</td>\n";
-		echo "<td>".$fila['puesto']."</td>\n";
+		echo "<td>".$fila['tipo1']."</td>\n";
+		echo "<td>".$fila['tipo2']."</td>\n";
+		echo "<td>".$fila['habilidad']."</td>\n";
+		echo "<td>".$fila['stat_total']."</td>\n";
 		echo "<td>";
 /* En la última columna se añade dos enlaces para editar y modificar el registro correspondiente. 
 Los datos se pueden enviar entre distintas páginas siguiendo distintos métodos. En este caso el id del registro a editar/eliminar se pasa a través de la URL. 
 Este forma de pasar el dato se conoce como: método GET*/
-		echo "<a href=\"edit.php?idempleado=$fila[id]\">Edición</a>\n";
-		echo "<a href=\"delete.php?idempleado=$fila[id]\" onClick=\"return confirm('¿Está segur@ que desea eliminar el empleado/a?')\" >Baja</a></td>\n";
+		echo "<a href=\"edit.php?id=$fila[id]\">Edición</a>\n";
+		echo "<a href=\"delete.php?id=$fila[id]\" onClick=\"return confirm('¿Está segur@ que desea eliminar el pokemon?')\" >Quitar</a></td>\n";
 		echo "</td>";
 		echo "</tr>\n";
 	}//fin mientras
