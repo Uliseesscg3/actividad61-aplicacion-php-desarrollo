@@ -19,10 +19,10 @@ RUN apt-get update \
 
 # COPY: Permite copiar archivos o directorios desde el contexto local de la máquina donde estamos creando la imagen hasta la imagen que será el sistema de archivos que utilizará el contenedor.
 # Copia el contenido del directorio /src (contenido del sitio web) en el "documentroot" del sitio de apache (/var/www/html)
-# COPY /src /var/www/html
+ COPY /src /var/www/html
 
 # Copia la configuración del sitio en el directorio de configuración de los sitios de apache (/etc/apache2/sites-available)
-# COPY /conf/000-default.conf /etc/apache2/sites-available/
+ COPY /conf/000-default.conf /etc/apache2/sites-available/
 
 # ENV: Permite definir una variable de entorno y asignarle un valor por defecto. Se puede utilizar el signo = o un espacio en blanco
 # Se pueden sobreescribir con la opción "--env" al crearse el contenedor: docker run --env...
@@ -30,9 +30,9 @@ RUN apt-get update \
 # En este caso le asignamos unos valores por defecto: "mariadb", "electroshop", "usuario", "usuario@1"
 
 ENV MARIADB_HOST mariadb
-ENV MARIADB_NAME electroshop
-ENV MARIADB_USER usuario
-ENV MARIADB_PASSWORD usuario@1
+ENV MARIADB_NAME actividad61_ulcu
+ENV MARIADB_USER usuarioulcu
+ENV MARIADB_PASSWORD ulisescuadrado@1
 
 # EXPOSE: INFORMA de los puertos que utilizará el contenedor cuando esté en ejecución
 # La instrucción EXPOSE no publica el puerto al exterior, solo informa a Docker.
