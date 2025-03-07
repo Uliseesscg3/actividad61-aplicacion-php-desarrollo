@@ -32,7 +32,7 @@ RUN apt-get update \
 ENV MARIADB_HOST mariadb
 ENV MARIADB_NAME actividad61_ulcu
 ENV MARIADB_USER usuarioulcu
-ENV MARIADB_PASSWORD ulisescuadrado@1
+ENV MARIADB_PASSWORD ulisescuadrado@2003
 
 # EXPOSE: INFORMA de los puertos que utilizará el contenedor cuando esté en ejecución
 # La instrucción EXPOSE no publica el puerto al exterior, solo informa a Docker.
