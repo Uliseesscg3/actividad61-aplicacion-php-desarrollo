@@ -8,12 +8,12 @@ include("config.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baja empleado/a</title>
+    <title>Eliminar Pokemon</title>
 </head>
 <body>
 <div>
 	<header>
-		<h1>ELECTROSHOP S.L.</h1>
+		<h1>actividad61UlCu</h1>
 	</header>
 	<main>
 
@@ -27,13 +27,13 @@ PHP proporciona el array asociativo $_POST para acceder a la información enviad
 */
 
 //Recoge el id del empleado a eliminar a través de la clave idempleado del array asociativo $_GET y lo almacena en la variable idempleado
-$idempleado = $_GET['idempleado'];
+$pokemon_id = $_GET['pokemon_id'];
 
 //Con mysqli_real_scape_string protege caracteres especiales en una cadena para ser usada en una sentencia SQL.
-$idempleado = $mysqli->real_escape_string($idempleado);
+$pokemon_id = $mysqli->real_escape_string($pokemon_id);
 
 //Se realiza el borrado del registro: delete.
-$result = $mysqli->query("DELETE FROM empleados WHERE id = $idempleado");
+$result = $mysqli->query("DELETE FROM pokemon WHERE pokemon_id = $pokemon_id");
 
 //Se cierra la conexión de base de datos previamente abierta
 $mysqli->close();

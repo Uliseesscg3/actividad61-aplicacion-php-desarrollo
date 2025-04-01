@@ -26,11 +26,10 @@ include_once("config.php");
 		<li><a href="index.php">Inicio</a></li>
 		<li><a href="add.html">Añadir Pokemon</a></li>
 	</ul>
-	<h2>YA HEMOS TERMINADO!!!!!!!!</h2>
 	<table border="1">
 	<thead>
 		<tr>
-			<th>Pokemon_id</th>
+			<th>pokemon_id</th>
 			<th>Nombre</th>
 			<th>Tipo</th>
 			<th>Stats</th>

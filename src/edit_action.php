@@ -8,12 +8,12 @@ include_once("config.php");
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
-	<title>Electroshop S.L.</title>
+	<title>actividad61UlCu</title>
 </head>
 <body>
 <div>
 	<header>
-		<h1>ELECTROSHOP S.L.</h1>
+		<h1>actividad61UlCu</h1>
 	</header>
 	<main>				
 
@@ -33,11 +33,12 @@ En PHP los datos se administran con el array asociativo $_GET. En nuestro caso e
 PHP proporciona el array asociativo $_POST para acceder a la información enviada.
 */
 
-	$idempleado = $mysqli->real_escape_string($_POST['idempleado']);
-	$name = $mysqli->real_escape_string($_POST['name']);
-	$surname = $mysqli->real_escape_string($_POST['surname']);
-	$age = $mysqli->real_escape_string($_POST['age']);
-	$job = $mysqli->real_escape_string($_POST['job']);
+	$pokemon_id = $mysqli->real_escape_string($_POST['pokemon_id']);
+	$nombre = $mysqli->real_escape_string($_POST['nombre']);
+	$tipo = $mysqli->real_escape_string($_POST['tipo']);
+	$stats = $mysqli->real_escape_string($_POST['stats']);
+	$region = $mysqli->real_escape_string($_POST['region']);
+	$habilidad = $mysqli->real_escape_string($_POST['habilidad']);
 
 /*Con mysqli_real_scape_string protege caracteres especiales en una cadena para ser usada en una sentencia SQL.
 Esta función es usada para crear una cadena SQL legal que se puede usar en una sentencia SQL. 
@@ -47,27 +48,32 @@ Escapado con mysqli_real_escape_string(): Se convierte en "O\'Reilly", evitando 
 */	
 
 //Se comprueba si existen campos del formulario vacíos
-	if(empty($name) || empty($surname) || empty($age) || empty($job))	{
-		if(empty($name)) {
+	if(empty($nombre) || empty($tipo) || empty($stats) || empty($habilidad) || empty($region))	{
+		if(empty($nombre)) {
 			echo "<font color='red'>Campo nombre vacío.</font><br/>";
 		}
 
-		if(empty($surname)) {
-			echo "<font color='red'>Campo apellido vacío.</font><br/>";
+		if(empty($tipo)) {
+			echo "<font color='red'>Campo tipo vacío.</font><br/>";
 		}
 
-		if(empty($age)) {
-			echo "<font color='red'>Campo edad vacío.</font><br/>";
+		if(empty($stats)) {
+			echo "<font color='red'>Campo stats vacío.</font><br/>";
 		}
 
-		if(empty($job)) {
-			echo "<font color='red'>Campo puesto vacío.</font><br/>";
+		if(empty($habilidad)) {
+			echo "<font color='red'>Campo habilidad vacío.</font><br/>";
 		}
+
+		if(empty($region)) {
+			echo "<font color='red'>Campo region vacío.</font><br/>";
+		}
+
 	} //fin si
 	else //Se realiza la modificación de un registro de la BD. 
 	{
 		//Se actualiza el registro a modificar: update
-		$mysqli->query("UPDATE empleados SET nombre = '$name', apellido = '$surname',  edad = '$age', puesto = '$job' WHERE id = $idempleado");
+		$mysqli->query("UPDATE pokemon SET nombre = '$nombre', tipo = '$tipo',  stats = '$stats', habilidad = '$habilidad', region = '$region' WHERE pokemon_id = $pokemon_id");
 		$mysqli->close();
         echo "<div>Registro editado correctamente...</div>";
 		echo "<a href='index.php'>Ver resultado</a>";

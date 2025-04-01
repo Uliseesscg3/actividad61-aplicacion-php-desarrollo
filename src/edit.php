@@ -8,20 +8,20 @@ include_once("config.php");
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
-	<title>Electroshop S.L.</title>
+	<title>actividad61UlCu</title>
 </head>
 <body>
 <div>
 	<header>
-		<h1>ELECTROSHOP S.L.</h1>
+		<h1>actividad61UlCu</h1>
 	</header>
 	
 	<main>				
 	<ul>
 		<li><a href="index.php" >Inicio</a></li>
-		<li><a href="add.html" >Alta</a></li>
+		<li><a href="add.html" >Alta Pokemon</a></li>
 	</ul>
-	<h2>Modificación empleado/a</h2>
+	<h2>Modificación Pokemon</h2>
 
 
 <?php
@@ -30,22 +30,23 @@ include_once("config.php");
 /*Obtiene el id del registro del empleado a modificar, idempleado, a partir de su URL. Este tipo de datos se accede utilizando el método: GET*/
 
 //Recoge el id del empleado a modificar a través de la clave idempleado del array asociativo $_GET y lo almacena en la variable idempleado
-$idempleado = $_GET['idempleado'];
+$pokemon_id = $_GET['pokemon_id'];
 
 //Con mysqli_real_scape_string protege caracteres especiales en una cadena para ser usada en una sentencia SQL.
-$idempleado = $mysqli->real_escape_string($idempleado);
+$pokemon_id = $mysqli->real_escape_string($pokemon_id);
 
 
 //Se selecciona el registro a modificar: select
-$resultado = $mysqli->query("SELECT apellido, nombre, edad, puesto FROM empleados WHERE id = $idempleado");
+$resultado = $mysqli->query("SELECT nombre, tipo, stats, habilidad, region FROM pokemon WHERE pokemon_id = $pokemon_id");
 
 //Se extrae el registro y lo guarda en el array $fila
 //Nota: También se puede utilizar el método fetch_assoc de la siguiente manera: $fila = $resultado->fetch_assoc();
 $fila = $resultado->fetch_array();
-$surname = $fila['apellido'];
-$name = $fila['nombre'];
-$age = $fila['edad'];
-$job = $fila['puesto'];
+$nombre = $fila['nombre'];
+$tipo = $fila['tipo'];
+$stats = $fila['stats'];
+$habilidad = $fila['habilidad'];
+$region = $fila['region'];
 
 //Se cierra la conexión de base de datos
 $mysqli->close();
@@ -56,41 +57,51 @@ $mysqli->close();
 
 	<form action="edit_action.php" method="post">
 		<div>
-			<label for="name">Nombre</label>
-			<input type="text" name="name" id="name" value="<?php echo $name;?>" required>
+			<label for="nombre">Nombre</label>
+			<input type="text" name="nombre" id="nombre" value="<?php echo $nombre;?>" required>
 		</div>
 
 		<div>
-			<label for="surname">Apellido</label>
-			<input type="text" name="surname" id="surname" value="<?php echo $surname;?>" required>
+			<label for="tipo">Tipo</label>
+			<input type="text" name="tipo" id="tipo" value="<?php echo $tipo;?>" required>
 		</div>
 
 		<div>
-			<label for="age">Edad</label>
-			<input type="number" name="age" id="age" value="<?php echo $age;?>" required>
+			<label for="stats">Stats</label>
+			<input type="number" name="stats" id="stats" value="<?php echo $stats;?>" required>
 		</div>
 
 		<div>
-			<label for="job">Puesto</label>
-			<select name="job" id="job" placeholder="puesto">
-				<option value="<?php echo $job;?>" selected><?php echo $job;?></option>
-				<option value="Administrativo">Administrativo</option>
-				<option value="Contable">Contable</option>
-				<option value="Dependiente">Dependiente</option>
-				<option value="Gerente">Gerente</option>
-				<option value="Repartidor">Repartidor</option>
+			<label for="region">Region</label>
+			<select name="region" id="region" placeholder="region">
+				<option value="<?php echo $region;?>" selected><?php echo $region;?></option>
+				<option value="Kanto">Kanto</option>
+				<option value="Johto">Johto</option>
+				<option value="Hoenn">Hoenn</option>
+				<option value="Sinnoh">Sinnoh</option>
+				<option value="Teselia">Teselia</option>
+				<option value="Kalos">Kalos</option>
+				<option value="Alola">Alola</option>
+				<option value="Galar">Galar</option>
+				<option value="Paldea">Paldea</option>
+				<option value="Hisui">Hisui</option>
 			</select>	
 		</div>
 
+		<div>
+			<label for="habilidad">Habilidad</label>
+			<input type="text" name="habilidad" id="habilidad" value="<?php echo $habilidad;?>" required>
+		</div>
+
 		<div >
-			<input type="hidden" name="idempleado" value=<?php echo $idempleado;?>>
+			<input type="hidden" name="pokemon_id" value=<?php echo $pokemon_id;?>>
 			<input type="submit" name="modifica" value="Guardar">
 			<input type="button" value="Cancelar" onclick="location.href='index.php'">
 		</div>
 	</form>
 	</main>	
 	<footer>
-		Created by the IES Miguel Herrero team &copy; 2024
+		Created by ULISES CUADRADO GARCIA &copy; 2024
   	</footer>
 </div>
 </body>

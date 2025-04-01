@@ -8,12 +8,12 @@ include_once("config.php");
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
-	<title>Alta empleado/a</title>
+	<title>Alta Pokemon</title>
 </head>
 <body>
 <div>
 	<header>
-		<h1>ELECTROSHOP S.L.</h1>
+		<h1>actividad61UlCu</h1>
 	</header>
 	<main>
 
@@ -34,10 +34,11 @@ En PHP los datos se administran con el array asociativo $_GET. En nuestro caso e
 PHP proporciona el array asociativo $_POST para acceder a la información enviada.
 */
 
-	$name = $mysqli->real_escape_string($_POST['name']);
-	$surname = $mysqli->real_escape_string($_POST['surname']);
-	$age = $mysqli->real_escape_string($_POST['age']);
-	$job = $mysqli->real_escape_string($_POST['job']);
+	$nombre = $mysqli->real_escape_string($_POST['nombre']);
+	$tipo = $mysqli->real_escape_string($_POST['tipo']);
+	$stats = $mysqli->real_escape_string($_POST['stats']);
+	$habilidad = $mysqli->real_escape_string($_POST['habilidad']);
+	$region = $mysqli->real_escape_string($_POST['region']);
 
 /*Con mysqli_real_scape_string protege caracteres especiales en una cadena para ser usada en una sentencia SQL.
 Esta función es usada para crear una cadena SQL legal que se puede usar en una sentencia SQL. 
@@ -47,23 +48,28 @@ Escapado con mysqli_real_escape_string(): Se convierte en "O\'Reilly", evitando 
 */
 
 //Se comprueba si existen campos del formulario vacíos
-	if(empty($name) || empty($surname) || empty($age) || empty($job) ) 
+	if(empty($nombre) || empty($tipo) || empty($stats) || empty($habilidad) || empty($region) ) 
 	{
-		if(empty($name)) {
+		if(empty($nombre)) {
 			echo "<div>Campo nombre vacío.</div>";
 		}
 
-		if(empty($surname)) {
-			echo "<div>Campo apellido vacío</div>";
+		if(empty($tipo)) {
+			echo "<div>Campo tipo vacío</div>";
 		}
 
-		if(empty($age)) {
-			echo "<div>Campo edad vacío.</div>";
+		if(empty($stats)) {
+			echo "<div>Campo stats vacío.</div>";
 		}
 
-		if(empty($job)) {
-			echo "<div>Campo puesto vacío.</div>";
+		if(empty($habilidad)) {
+			echo "<div>Campo habilidad vacío.</div>";
 		}
+
+		if(empty($region)) {
+			echo "<div>Campo region vacío.</div>";
+		}
+
 //Enlace a la página anterior
 		//Se cierra la conexión
 		$mysqli->close();
@@ -72,7 +78,7 @@ Escapado con mysqli_real_escape_string(): Se convierte en "O\'Reilly", evitando 
 	else //Sino existen campos de formulario vacíos se procede al alta del nuevo registro
 	{
 //Se ejecuta una sentencia SQL. Inserta (da de alta) el nuevo registro: insert.
-		$result = $mysqli->query("INSERT INTO empleados (nombre, apellido, edad, puesto) VALUES ('$name', '$surname', '$age', '$job')");	
+		$result = $mysqli->query("INSERT INTO pokemon (nombre, tipo, stats, habilidad, region) VALUES ('$nombre', '$tipo', '$stats', '$habilidad', '$region')");	
 		//Se cierra la conexión
 		$mysqli->close();
 		echo "<div>Registro añadido correctamente...</div>";
