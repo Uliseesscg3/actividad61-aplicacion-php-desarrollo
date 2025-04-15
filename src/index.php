@@ -29,12 +29,12 @@ include_once("config.php");
 	<table border="1">
 	<thead>
 		<tr>
-			<th>pokemon_id</th>
 			<th>Nombre</th>
 			<th>Tipo</th>
 			<th>Stats</th>
 			<th>Habilidad</th>
 			<th>Region</th>
+			<th>Acciones</th>
 		</tr>
 	</thead>
 	<tbdody>
@@ -87,7 +87,6 @@ A medida que avanza se va consturyendo cada fila de la tabla HTML con todos los 
 
 	while($fila = $resultado->fetch_array()) {
 		echo "<tr>\n";
-		echo "<td>".$fila['pokemon_id']."</td>\n";
 		echo "<td>".$fila['nombre']."</td>\n";
 		echo "<td>".$fila['tipo']."</td>\n";
 		echo "<td>".$fila['stats']."</td>\n";
