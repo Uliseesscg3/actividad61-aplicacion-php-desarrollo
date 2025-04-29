@@ -52,4 +52,16 @@ if(isset($_POST['modifica'])) {
     }
     else
     {
-        $mysqli->query("UPDATE pokemon SET
+        $mysqli->query("UPDATE pokemon SET nombre = '$nombre', tipo = '$tipo',  stats = '$stats', habilidad = '$habilidad', region = '$region' WHERE pokemon_id = $pokemon_id");
+        $mysqli->close();
+        echo '<div class="alert alert-success">Registro editado correctamente...</div>';
+        echo '<a href="index.php" class="btn btn-primary">Ver resultado</a>';
+    }
+}
+?>
+    </main>    
+</div>
+<!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
