@@ -1,4 +1,3 @@
-# Les comento qué significan cada una de las instrucciones.
 # FROM: Indica cuál es la imagen que vamos a utilizar como punto de partida para generar la nueva imagen
 FROM ubuntu:24.04
 # FROM ubuntu:latest
