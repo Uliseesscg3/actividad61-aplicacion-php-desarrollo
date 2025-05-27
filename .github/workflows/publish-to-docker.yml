@@ -6,11 +6,11 @@ on:
   
   # Ejecuta el flujo de trabajo al hacer un git push  
   push:
-     branches: ["main"]
+     branches: ["master"]
   #  branches:
   #    - main  # Se ejecutará cuando haya un push en main
   pull_request:
-     branches: ["main"]
+     branches: ["master"]
     #  branches:
   #    - main    # Se ejecutará cuando haya un pull request en main   
 
