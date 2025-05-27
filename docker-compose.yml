@@ -6,7 +6,7 @@ services:
 # Servicio 1: Definimos el servicio APACHE. Utilizamos imagdocken: debian+apache+PHP para crear los contenedores del servicio.
   apache:
   # Podemos usar una imagen predefinida utilizando la clave yaml: image. En este caso: php:8.2-apache. La comento porque no la vamos a usar.
-    image: uliseesscg3/actividad61-aplicacion-crud-php:1.0
+    image: uliseesscg3/actividad61-aplicacion-crud-php2:latest
   # O crea la imagen con la clave: build. Con el valor ./ indicamos la ubicación del archivo Dockerfile para la creación de la imagen.  
   #  build: ./
 # Publica el puerto 80 del contenedor como 80 en la red del host de docker    
@@ -58,3 +58,4 @@ services:
       - mariadb
 volumes:
   mariadb_data:
+
