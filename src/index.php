@@ -14,7 +14,7 @@ include_once("config.php");
 <body class="bg-light">
 <div class="container mt-4">
     <header class="mb-4">
-        <h1 class="text-center">actividad61UlCu</h1>
+        <h1 class="text-center">actividad61Ulises</h1>
     </header>
 
     <main>
